@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1mgl0jc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <decision id="Decision_1hd9ugh" name="tabla1">
+    <decisionTable id="DecisionTable_0dqfqcr">
+      <input id="Input_1" label="entrada" camunda:inputVariable="entrada">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>entrada</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="salida" name="salida1" typeRef="integer" />
+      <rule id="DecisionRule_0avw7hl">
+        <inputEntry id="UnaryTests_0pwrcqf">
+          <text>"entrada1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1im0z1f">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17fz338">
+        <inputEntry id="UnaryTests_0y99ziw">
+          <text>"entrada2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mzymj7">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1j3halt" name="tabla2">
+    <informationRequirement id="InformationRequirement_1bwcwx1">
+      <requiredDecision href="#Decision_1hd9ugh" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_07acjqb" hitPolicy="RULE ORDER">
+      <input id="InputClause_0skaxb2" label="salida" camunda:inputVariable="salida">
+        <inputExpression id="LiteralExpression_0dyvdug" typeRef="integer">
+          <text>salida</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0g90wuv" label="entradaNueva" camunda:inputVariable="entradaNueva">
+        <inputExpression id="LiteralExpression_037660j" typeRef="string">
+          <text>entradaNueva</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0ebok2u" label="final" name="final" typeRef="string" />
+      <rule id="DecisionRule_1u15j0g">
+        <inputEntry id="UnaryTests_0cb44rc">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z4veol">
+          <text>"a"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1585dbw">
+          <text>"final 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nebo8c">
+        <inputEntry id="UnaryTests_1kg5796">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fos9jk">
+          <text>"b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m0bqy7">
+          <text>"final 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_087wlog">
+        <inputEntry id="UnaryTests_1rry47h">
+          <text>1,2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00bnlsz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1atpai6">
+          <text>"final otra"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1hd9ugh">
+        <dc:Bounds height="80" width="180" x="160" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0i4wv8y" dmnElementRef="InformationRequirement_1bwcwx1">
+        <di:waypoint x="250" y="260" />
+        <di:waypoint x="530" y="180" />
+        <di:waypoint x="530" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_15aqrfm" dmnElementRef="Decision_1j3halt">
+        <dc:Bounds height="80" width="180" x="440" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
